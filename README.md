@@ -12,9 +12,13 @@ https://www.mn5.cc/plus/search/index.asp
 
 https://www.xiurenji.com/plus/search/index.asp
 
-2.搜索框输入内容,搜索
+2.搜索框输入内容,点击搜索
 
 3.把 "index.js" 文件内容复制到浏览器控制台运行
+
+https://github.com/masx200/mn5-cc-search-downloader/blob/master/index.js
+
+注意:
 
 需要配合 arai2c 使用，
 
