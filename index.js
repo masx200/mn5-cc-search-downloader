@@ -1,3 +1,4 @@
+~(()=>{
 //提取秀人网搜索页的网址并aria2c下载全部图片
 
 //https://www.xiurenji.com/plus/search/index.asp?keyword=no.171&searchtype=title
@@ -154,3 +155,4 @@ async function alldownloadsearchpageallimages(document) {
 alldownloadsearchpageallimages(document).then(() => {
     console.log("全部处理完成");
 });
+})();
