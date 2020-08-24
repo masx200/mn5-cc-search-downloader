@@ -96,7 +96,11 @@ async function downloadallpagesfromdom(document) {
             })
         ).then(() => {
             console.log(
-                "all\xA0images\xA0download\xA0done" + ":" + document.documentURI
+                "all\xA0images\xA0download\xA0done" + ":" + 
+
+domtourl.get(document)
+
+//document.documentURI
             );
         });
     });
@@ -175,8 +179,15 @@ function selectpagehtmlurls(document) {
         )
     );
 }
+const urltodom=new Map
+const domtourl=new Map
 //从网址解析出文档
 async function resolvedomfromurl(url) {
+	
+	if(urltodom.get(url)){
+return urltodom.get(url)
+
+}
     let parser = new DOMParser();
     let response = await fetch(url);
     if (!response.ok) {
@@ -190,6 +201,9 @@ async function resolvedomfromurl(url) {
     let buffer = await response.arrayBuffer();
     const text = new TextDecoder("gb2312").decode(buffer);
     let dom = parser.parseFromString(text, "text/html");
+    urltodom.set(url,dom)
+    
+    domtourl.set(dom,url,)
     return dom;
 }
 
@@ -200,7 +214,12 @@ async function downloadsearchonepageallimages(document) {
         await downloadallpagesfromdom(doc);
     }
     console.log(
-        "all\xA0images\xA0download\xA0done" + ":" + document.documentURI
+        "all\xA0images\xA0download\xA0done" + ":" +
+domtourl.get(document)
+
+
+
+ ////document.documentURI
     );
 }
 
@@ -214,11 +233,16 @@ async function alldownloadsearchpageallimages(document) {
         await downloadsearchonepageallimages(doc);
     }
     console.log(
-        "all\xA0images\xA0download\xA0done" + ":" + document.documentURI
+        "all\xA0images\xA0download\xA0done" + ":" +
+
+domtourl.get(document)
+ //document.documentURI
     );
 }
 //下载所有搜索页的相册
 alldownloadsearchpageallimages(document).then(() => {
+	domtourl.clear()
+	urltodom.clear()
     console.log("全部处理完成");
 });
 })();
