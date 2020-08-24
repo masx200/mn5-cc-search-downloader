@@ -11,3 +11,12 @@ https://www.mn5.cc/plus/search/index.asp
 
 3.把index.js文件内容复制到浏览器控制台运行
 
+需要配合 arai2c 使用，
+
+aria2 RPC 调用网址为
+
+http://localhost:6800/jsonrpc
+
+aria2c RPC 配置
+
+https://github.com/masx200/aria2c-backend-rpc-config
