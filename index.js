@@ -1,4 +1,70 @@
 ~(()=>{
+	
+	//https://unpkg.com/@shanyue/promise-utils@2.0.4/dist/lib/retry.js
+	
+	"use strict";
+///*Object.defineProperty(exports, "__esModule", { value: true });
+//exports.retry = exports.AbortError = void 0;*/
+class AbortError extends Error {
+    constructor(message) {
+        super();
+        if (message instanceof Error) {
+            this.originalError = message;
+            ({ message } = message);
+        }
+        else {
+            this.originalError = new Error(message);
+            this.originalError.stack = this.stack;
+        }
+        this.name = 'AbortError';
+        this.message = message;
+    }
+}
+///*exports.AbortError = AbortError;*/
+async function retry(run, { times = 10, onFailedAttempt = () => { }, } = {}) {
+    let count = 1;
+    async function exec() {
+        try {
+            const result = await run(count);
+            return result;
+        }
+        catch (e) {
+            if (count > times || e instanceof AbortError) {
+                throw e;
+            }
+            count++;
+            await onFailedAttempt(e);
+            return exec();
+        }
+    }
+    return exec();
+}
+//exports.retry = retry;
+//# sourceMappingURL=retry.js.map
+	
+	
+	
+	const fetch=async function fetch(url, opt = {}) {
+    return await retry(
+        () => {
+         //   onrequest(url, opt);
+            return window.fetch(url, opt);
+        },
+        {
+            times: 7,
+            onFailedAttempt: async (e) => {
+                console.warn(e);
+                console.warn("网络错误，4秒后重试");
+                await sleep(4000);
+            },
+        }
+    );
+}
+//window.fetch
+	
+	
+	
+	
 //提取秀人网搜索页的网址并aria2c下载全部图片
 
 //https://www.xiurenji.com/plus/search/index.asp?keyword=no.171&searchtype=title
@@ -68,7 +134,7 @@ async function callaria2cdown(fileurls, directoryname) {
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "cross-site",
         },
-        referrer: "http://aria2c.com/",
+      //  referrer: "http://aria2c.com/",
         referrerPolicy: "no-referrer-when-downgrade",
         body: JSON.stringify(data),
         method: "POST",
