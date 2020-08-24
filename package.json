@@ -1,6 +1,24 @@
-  {"scripts": {
-        
+{
+    "scripts": {
         "prettier": "prettier --write *.json *.md *.js"
-    },"devDependencies": {
+    },
+    "devDependencies": {
         "prettier": "^2.0.5"
-    }}
+    },
+    "name": "@masx200/mn5-cc-search-downloader",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/masx200/mn5-cc-search-downloader.git"
+    },
+    "author": "masx200 <masx200@qq.com>",
+    "license": "MIT",
+    "description": "网站 www.mn5.cc 的搜索页面的批量下载图片浏览器脚本",
+    "bugs": {
+        "url": "https://github.com/masx200/mn5-cc-search-downloader/issues"
+    },
+    "homepage": "https://github.com/masx200/mn5-cc-search-downloader#readme",
+    "dependencies": {},
+    "keywords": []
+}
