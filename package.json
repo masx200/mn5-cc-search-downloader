@@ -1,0 +1,6 @@
+  {"scripts": {
+        
+        "prettier": "prettier --write *.json *.md *.js"
+    },"devDependencies": {
+        "prettier": "^2.0.5"
+    }}
