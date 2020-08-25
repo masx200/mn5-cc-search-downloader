@@ -18,6 +18,10 @@ https://www.xiurenji.com/plus/search/index.asp
 
 https://github.com/masx200/mn5-cc-search-downloader/blob/master/index.js
 
+或者
+
+https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/index.js
+
 注意:
 
 需要配合 arai2c 使用，
