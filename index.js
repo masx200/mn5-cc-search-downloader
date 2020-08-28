@@ -238,5 +238,6 @@
         domtourl.clear();
         urltodom.clear();
         console.log("全部处理完成");
+alert("全部处理完成");
     });
 })();
