@@ -1,13 +1,13 @@
 ~(() => {
     //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
-   function sleep(ms) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-    });
-}
- //https://unpkg.com/@shanyue/promise-utils@2.0.4/dist/lib/retry.js
+    function sleep(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }
+    //https://unpkg.com/@shanyue/promise-utils@2.0.4/dist/lib/retry.js
 
-    "use strict";
+    ("use strict");
     ///*Object.defineProperty(exports, "__esModule", { value: true });
     //exports.retry = exports.AbortError = void 0;*/
     class AbortError extends Error {
@@ -238,6 +238,6 @@
         domtourl.clear();
         urltodom.clear();
         console.log("全部处理完成");
-alert("全部处理完成");
+        alert("全部处理完成");
     });
 })();
