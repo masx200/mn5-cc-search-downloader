@@ -234,6 +234,11 @@ console.log(
 
             ////document.documentURI
         );
+//删除无用
+urltodom.delete(domtourl.get(document)
+)
+
+domtourl.delete(document)
     }
 
     //下载搜索一页的相册
@@ -246,7 +251,7 @@ console.log(
             await downloadsearchonepageallimages(doc);
         }
         console.log(
-            "all\xA0images\xA0download\xA0done" + ":" + domtourl.get(document)
+            "all\xA0images\xA0download\xA0done" + ":" + domtourl.get(document)||document.documentURI
             //document.documentURI
         );
     }
