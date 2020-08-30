@@ -87,13 +87,15 @@
     }
     //下载相册所有页的图片
     async function downloadallpagesfromdom(document) {
-        return downloadonepageallimages(document).then(() => {
-            return Promise.all(
-                selectpagehtmlurls(document).map(async (url) => {
+const allpageurls = selectpagehtmlurls(document);        
+await downloadonepageallimages(document)
+            await Promise.all(
+                allpageurls.map(async (url) => {
                     let dom = await resolvedomfromurl(url);
                     return await downloadonepageallimages(dom);
                 })
-            ).then(() => {
+            )
+
                 console.log(
                     "all\xA0images\xA0download\xA0done" +
                         ":" +
@@ -101,8 +103,9 @@
 
                     //document.documentURI
                 );
-            });
-        });
+           
+        urltodom.delete(document.documentURI);
+allpageurls.forEach((url) => urltodom.delete(url));
     }
 
     //调用aria2c批量下载文件
