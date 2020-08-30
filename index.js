@@ -111,6 +111,7 @@ docs.push(dom)
            
         urltodom.delete(document.documentURI);
 allpageurls.forEach((url) => urltodom.delete(url));
+//垃圾回收，删除
 domtourl.delete(document)
 docs.forEach(doc=>domtourl.delete(doc))
     }
