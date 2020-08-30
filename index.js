@@ -1,6 +1,7 @@
 import { callaria2cdown } from "./callaria2cdown.js";
 import { getdirectoryname } from "./getdirectoryname.js";
 import { retryfetch } from "./retryfetch.js";
+import { selectimagesfromdom } from "./selectimagesfromdom";
 import { selectsearchresults } from "./selectsearchresults.js";
 export const fetch = retryfetch;
 const rpcurl = "http://localhost:6800/jsonrpc";
@@ -49,18 +50,7 @@ export { rpcurl };
     //调用aria2c批量下载文件
 
     //选择文档中的所有图片并去重
-    function selectimagesfromdom(document) {
-        var fileurls = Array.from(
-            new Set(
-                Array.from(document.querySelectorAll("img"))
-                    .map((e) => e.src)
-                    .filter((a) => !!a)
-                    .filter((a) => a.startsWith("http"))
-                    .filter((a) => a.endsWith(".jpg"))
-            )
-        );
-        return fileurls;
-    }
+
     //下载相册一页中的图片
     async function downloadonepageallimages(document) {
         const directoryname = getdirectoryname(document);
