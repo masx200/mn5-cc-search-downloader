@@ -1,5 +1,5 @@
 import { fetch, rpcurl } from "./index.js";
-console.log(rpcurl);
+// console.log(rpcurl);
 export async function requestjsonrpc(data) {
     const response = await fetch(rpcurl, {
         headers: {

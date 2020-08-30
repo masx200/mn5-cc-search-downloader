@@ -18,7 +18,7 @@ https://www.xiurenji.com/plus/search/index.asp
 
 ```js
 import(
-    "https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/index.js"
+    "https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/src/index.js"
 );
 ```
 
