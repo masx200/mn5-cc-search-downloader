@@ -1,9 +1,7 @@
 import { selectpagehtmlurls } from "./selectpagehtmlurls.js";
-import {
-    resolvedomfromurl,
-    downloadsearchonepageallimages,
-    domtourl,
-} from "./index";
+import { domtourl } from "./index.js";
+import { resolvedomfromurl } from "./resolvedomfromurl.js";
+import { downloadsearchonepageallimages } from "./downloadsearchonepageallimages.js";
 
 //下载搜索一页的相册
 //下载所有搜索页的相册的图片
