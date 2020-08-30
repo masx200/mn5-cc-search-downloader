@@ -1,6 +1,8 @@
 ~(() => {
     const rpcurl = "http://localhost:6800/jsonrpc";
-    //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
+const urltodom = new Map();
+    const domtourl = new WeakMap();   
+ //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
     function sleep(ms) {
         return new Promise((resolve) => {
             setTimeout(resolve, ms);
@@ -87,12 +89,15 @@
     }
     //下载相册所有页的图片
     async function downloadallpagesfromdom(document) {
+const docs=[]
 const allpageurls = selectpagehtmlurls(document);        
 await downloadonepageallimages(document)
+
             await Promise.all(
                 allpageurls.map(async (url) => {
                     let dom = await resolvedomfromurl(url);
-                    return await downloadonepageallimages(dom);
+docs.push(dom)                 
+   return await downloadonepageallimages(dom);
                 })
             )
 
@@ -106,6 +111,8 @@ await downloadonepageallimages(document)
            
         urltodom.delete(document.documentURI);
 allpageurls.forEach((url) => urltodom.delete(url));
+domtourl.delete(document)
+docs.forEach(doc=>domtourl.delete(doc))
     }
 
     //调用aria2c批量下载文件
@@ -184,8 +191,8 @@ allpageurls.forEach((url) => urltodom.delete(url));
             )
         );
     }
-    const urltodom = new Map();
-    const domtourl = new Map();
+   // const urltodom = new Map();
+   // const domtourl = new Map();
     //从网址解析出文档
     async function resolvedomfromurl(url) {
         if (urltodom.get(url)) {
