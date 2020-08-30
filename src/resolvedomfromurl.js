@@ -1,4 +1,5 @@
-import { urltodom, fetch, domtourl } from "./index.js";
+import { fetch } from "./fetch.js";
+import { urltodom, domtourl } from "./urltodom.js";
 
 //选择所有页选择按钮的网址链接
 // const urltodom = new Map();

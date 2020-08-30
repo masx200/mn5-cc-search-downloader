@@ -1,5 +1,5 @@
 import { selectsearchresults } from "./selectsearchresults.js";
-import { domtourl, urltodom } from "./index.js";
+import { domtourl, urltodom } from "./urltodom.js";
 import { downloadallpagesfromdom } from "./downloadallpagesfromdom.js";
 import { resolvedomfromurl } from "./resolvedomfromurl.js";
 

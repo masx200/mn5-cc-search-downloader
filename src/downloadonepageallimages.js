@@ -1,7 +1,7 @@
 import { callaria2cdown } from "./callaria2cdown.js";
 import { getdirectoryname } from "./getdirectoryname.js";
 import { selectimagesfromdom } from "./selectimagesfromdom.js";
-import { domtourl } from "./index.js";
+import { domtourl } from "./urltodom.js";
 
 //调用aria2c批量下载文件
 //选择文档中的所有图片并去重

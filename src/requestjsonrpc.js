@@ -1,4 +1,5 @@
-import { fetch, rpcurl } from "./index.js";
+import { fetch } from "./fetch.js";
+import { rpcurl } from "./rpcurl.js";
 // console.log(rpcurl);
 export async function requestjsonrpc(data) {
     const response = await fetch(rpcurl, {
@@ -22,4 +23,5 @@ export async function requestjsonrpc(data) {
     if ("application/json-rpc" !== contenttype) {
         throw new Error("content-type:" + contenttype);
     }
+    await response.json()
 }

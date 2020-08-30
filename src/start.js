@@ -1,4 +1,4 @@
-import { domtourl, urltodom } from "./index.js";
+import { domtourl, urltodom } from "./urltodom.js";
 import { alldownloadsearchpageallimages } from "./alldownloadsearchpageallimages.js";
 import { testconnect } from "./testconnect.js";
 

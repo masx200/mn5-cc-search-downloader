@@ -1,4 +1,4 @@
-import { rpcurl } from "./index.js";
+import { rpcurl } from "./rpcurl.js";
 export async function testconnect() {
     const response = await window.fetch(rpcurl, {
         headers: {

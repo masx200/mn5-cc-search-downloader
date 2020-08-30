@@ -1,7 +1,7 @@
 import { downloadonepageallimages } from "./downloadonepageallimages.js";
 import { resolvedomfromurl } from "./resolvedomfromurl.js";
 import { selectpagehtmlurls } from "./selectpagehtmlurls.js";
-import { domtourl, urltodom } from "./index.js";
+import { domtourl, urltodom } from "./urltodom.js";
 
 // ~(() => {
 //window.fetch

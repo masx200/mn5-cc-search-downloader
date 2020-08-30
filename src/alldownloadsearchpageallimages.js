@@ -1,5 +1,5 @@
 import { selectpagehtmlurls } from "./selectpagehtmlurls.js";
-import { domtourl } from "./index.js";
+import { domtourl } from "./urltodom.js";
 import { resolvedomfromurl } from "./resolvedomfromurl.js";
 import { downloadsearchonepageallimages } from "./downloadsearchonepageallimages.js";
 
