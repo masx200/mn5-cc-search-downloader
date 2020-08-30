@@ -16,10 +16,6 @@ https://www.xiurenji.com/plus/search/index.asp
 
 3.把 "index.js" 文件内容复制到浏览器控制台运行
 
-https://github.com/masx200/mn5-cc-search-downloader/blob/master/index.js
-
-或者
-
 https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/index.js
 
 # 注意:
