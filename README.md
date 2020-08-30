@@ -26,6 +26,8 @@ https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/index.js
 
 需要配合 arai2c 使用，
 
+https://aria2.github.io/
+
 aria2 RPC 调用网址为
 
 http://localhost:6800/jsonrpc
