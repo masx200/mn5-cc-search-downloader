@@ -7,9 +7,13 @@ const params = new URL(import.meta.url).searchParams;
 // @ts-ignore
 console.log(Object.fromEntries(params));
 // @ts-ignore
-const rpcparam = parms.get("rpcurl");
+const rpcparam = params.get("rpcurl");
 console.log(rpcparam);
-const rpcurl = rpcparam ?? "http://localhost:6800/jsonrpc";
+const urlsymbol = Symbol.for("rpcurl");
+const defaulturl = "http://localhost:6800/jsonrpc";
+window[urlsymbol] = rpcparam ?? defaulturl;
+const rpcurl = window[urlsymbol] ?? defaulturl;
+console.log(rpcurl);
 checkurl(rpcurl);
 export { rpcurl };
 export const urltodom = new Map();

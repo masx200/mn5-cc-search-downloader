@@ -13,8 +13,9 @@ export async function alldownloadsearchpageallimages(document) {
         await downloadsearchonepageallimages(doc);
     }
     console.log(
-        "all\xA0images\xA0download\xA0done" + ":" + domtourl.get(document) ||
-            document.documentURI
+        "all\xA0images\xA0download\xA0done" +
+            ":" +
+            (domtourl.get(document) || document.documentURI)
         //document.documentURI
     );
 }

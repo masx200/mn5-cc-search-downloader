@@ -1,5 +1,5 @@
 import { domtourl, urltodom } from "./index.js";
-import { alldownloadsearchpageallimages } from "./alldownloadsearchpageallimages";
+import { alldownloadsearchpageallimages } from "./alldownloadsearchpageallimages.js";
 
 export async function start() {
     //下载所有搜索页的相册
