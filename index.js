@@ -4,9 +4,8 @@ import { retryfetch } from "./retryfetch.js";
 import { selectsearchresults } from "./selectsearchresults.js";
 export const fetch = retryfetch;
 const rpcurl = "http://localhost:6800/jsonrpc";
-export {rpcurl}
+export { rpcurl };
 ~(() => {
-   
     const urltodom = new Map();
     const domtourl = new Map();
 
@@ -48,7 +47,7 @@ export {rpcurl}
     }
 
     //调用aria2c批量下载文件
-   
+
     //选择文档中的所有图片并去重
     function selectimagesfromdom(document) {
         var fileurls = Array.from(
