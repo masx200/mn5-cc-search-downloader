@@ -30,7 +30,7 @@
     ///*exports.AbortError = AbortError;*/
     async function retry(
         run,
-        { times = 10, onFailedAttempt = (e) => {} } = {}
+        { times = 10, onFailedAttempt = (e) => { } } = {}
     ) {
         let count = 1;
         async function exec() {
@@ -253,16 +253,20 @@
         }
         console.log(
             "all\xA0images\xA0download\xA0done" +
-                ":" +
-                domtourl.get(document) || document.documentURI
+            ":" +
+            domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
-    //下载所有搜索页的相册
-    alldownloadsearchpageallimages(document).then(() => {
-        domtourl.clear();
-        urltodom.clear();
-        console.log("全部处理完成");
-        alert("全部处理完成");
-    });
+    async function start() {
+        //下载所有搜索页的相册
+        alldownloadsearchpageallimages(document).then(() => {
+            domtourl.clear();
+            urltodom.clear();
+            console.log("全部处理完成");
+            alert("全部处理完成");
+        });
+    }
+
+    start()
 })();
