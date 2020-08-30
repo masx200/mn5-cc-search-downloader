@@ -1,28 +1,11 @@
-import { retry } from "./retry.js";
-import { sleep } from "./sleep.js";
-
+import { retryfetch } from "./retryfetch";
+const fetch = retryfetch;
 //exports.retry = retry;
 ~(() => {
     const rpcurl = "http://localhost:6800/jsonrpc";
     const urltodom = new Map();
     const domtourl = new Map();
 
-    const fetch = async function fetch(url, opt = {}) {
-        return await retry(
-            () => {
-                //   onrequest(url, opt);
-                return window.fetch(url, opt);
-            },
-            {
-                times: 7,
-                onFailedAttempt: async (e) => {
-                    console.warn(e);
-                    console.warn("网络错误，4秒后重试");
-                    await sleep(4000);
-                },
-            }
-        );
-    };
     //window.fetch
 
     //提取秀人网搜索页的网址并aria2c下载全部图片
