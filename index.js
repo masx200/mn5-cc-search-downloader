@@ -1,8 +1,8 @@
 ~(() => {
     const rpcurl = "http://localhost:6800/jsonrpc";
-const urltodom = new Map();
-    const domtourl = new WeakMap();   
- //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
+    const urltodom = new Map();
+    const domtourl = new WeakMap();
+    //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
     function sleep(ms) {
         return new Promise((resolve) => {
             setTimeout(resolve, ms);
@@ -89,31 +89,29 @@ const urltodom = new Map();
     }
     //下载相册所有页的图片
     async function downloadallpagesfromdom(document) {
-const docs=[]
-const allpageurls = selectpagehtmlurls(document);        
-await downloadonepageallimages(document)
+        const docs = [];
+        const allpageurls = selectpagehtmlurls(document);
+        await downloadonepageallimages(document);
 
-            await Promise.all(
-                allpageurls.map(async (url) => {
-                    let dom = await resolvedomfromurl(url);
-docs.push(dom)                 
-   return await downloadonepageallimages(dom);
-                })
-            )
+        await Promise.all(
+            allpageurls.map(async (url) => {
+                let dom = await resolvedomfromurl(url);
+                docs.push(dom);
+                return await downloadonepageallimages(dom);
+            })
+        );
 
-                console.log(
-                    "all\xA0images\xA0download\xA0done" +
-                        ":" +
-                        domtourl.get(document)
+        console.log(
+            "all\xA0images\xA0download\xA0done" + ":" + domtourl.get(document)
 
-                    //document.documentURI
-                );
-           
+            //document.documentURI
+        );
+
         urltodom.delete(document.documentURI);
-allpageurls.forEach((url) => urltodom.delete(url));
-//垃圾回收，删除
-domtourl.delete(document)
-docs.forEach(doc=>domtourl.delete(doc))
+        allpageurls.forEach((url) => urltodom.delete(url));
+        //垃圾回收，删除
+        domtourl.delete(document);
+        docs.forEach((doc) => domtourl.delete(doc));
     }
 
     //调用aria2c批量下载文件
@@ -170,7 +168,8 @@ docs.forEach(doc=>domtourl.delete(doc))
                 Array.from(document.querySelectorAll("img"))
                     .map((e) => e.src)
                     .filter((a) => !!a)
-                    .filter((a) => a.startsWith("http")).filter(a=>a.endsWith(".jpg"))
+                    .filter((a) => a.startsWith("http"))
+                    .filter((a) => a.endsWith(".jpg"))
             )
         );
         return fileurls;
@@ -180,12 +179,12 @@ docs.forEach(doc=>domtourl.delete(doc))
         const directoryname = getdirectoryname(document);
         let fileurls = selectimagesfromdom(document);
         return callaria2cdown(fileurls, directoryname);
-console.log(
-        "one page\xA0images\xA0download\xA0done " + domtourl.get(document)
-//
-//document.documentURI
-    );    
-}
+        console.log(
+            "one page\xA0images\xA0download\xA0done " + domtourl.get(document)
+            //
+            //document.documentURI
+        );
+    }
     //选择所有页选择按钮的网址链接
     function selectpagehtmlurls(document) {
         // console.log(document)
@@ -197,8 +196,8 @@ console.log(
             )
         );
     }
-   // const urltodom = new Map();
-   // const domtourl = new Map();
+    // const urltodom = new Map();
+    // const domtourl = new Map();
     //从网址解析出文档
     async function resolvedomfromurl(url) {
         if (urltodom.get(url)) {
@@ -234,11 +233,10 @@ console.log(
 
             ////document.documentURI
         );
-//删除无用
-urltodom.delete(domtourl.get(document)
-)
+        //删除无用
+        urltodom.delete(domtourl.get(document));
 
-domtourl.delete(document)
+        domtourl.delete(document);
     }
 
     //下载搜索一页的相册
@@ -251,7 +249,9 @@ domtourl.delete(document)
             await downloadsearchonepageallimages(doc);
         }
         console.log(
-            "all\xA0images\xA0download\xA0done" + ":" + domtourl.get(document)||document.documentURI
+            "all\xA0images\xA0download\xA0done" +
+                ":" +
+                domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
