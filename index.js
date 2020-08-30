@@ -178,7 +178,7 @@
     async function downloadonepageallimages(document) {
         const directoryname = getdirectoryname(document);
         let fileurls = selectimagesfromdom(document);
-        return callaria2cdown(fileurls, directoryname);
+        await callaria2cdown(fileurls, directoryname);
         console.log(
             "one page\xA0images\xA0download\xA0done " + domtourl.get(document)
             //
