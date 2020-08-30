@@ -1,7 +1,9 @@
 import { domtourl, urltodom } from "./index.js";
 import { alldownloadsearchpageallimages } from "./alldownloadsearchpageallimages.js";
+import { testconnect } from "./testconnect.js";
 
 export async function start() {
+    await testconnect();
     //下载所有搜索页的相册
     alldownloadsearchpageallimages(document).then(() => {
         domtourl.clear();

@@ -1,6 +1,6 @@
 import { checkurl } from "./checkurl.js";
 import { retryfetch } from "./retryfetch.js";
-// import { start } from "./start.js";
+import { start } from "./start.js";
 export const fetch = retryfetch;
 // @ts-ignore
 // const params = new URL(import.meta.url).searchParams;
@@ -18,8 +18,9 @@ checkurl(rpcurl);
 export { rpcurl };
 export const urltodom = new Map();
 export const domtourl = new Map();
-import("./start.js").then(({ start }) => {
-    start();
-});
+// import("./start.js").then(({ start }) => {
+
+start();
+// });
 
 // })();
