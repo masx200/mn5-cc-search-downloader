@@ -1,4 +1,5 @@
 ~(() => {
+    const rpcurl = "http://localhost:6800/jsonrpc";
     //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
     function sleep(ms) {
         return new Promise((resolve) => {
@@ -127,7 +128,7 @@
                 ],
             };
         });
-        let response = await fetch("http://localhost:6800/jsonrpc", {
+        let response = await fetch(rpcurl, {
             headers: {
                 accept:
                     "application/json,\xA0text/javascript,\xA0*/*;\xA0q=0.01",
