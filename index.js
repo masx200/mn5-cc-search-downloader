@@ -4,7 +4,9 @@ import { retryfetch } from "./retryfetch.js";
 import { selectimagesfromdom } from "./selectimagesfromdom";
 import { selectsearchresults } from "./selectsearchresults.js";
 export const fetch = retryfetch;
-const rpcurl = "http://localhost:6800/jsonrpc";
+// @ts-ignore
+const rpcparam = new URL(import.meta.url).searchParams.get("rpc")
+const rpcurl = rpcparam ?? "http://localhost:6800/jsonrpc";
 export { rpcurl };
 ~(() => {
     const urltodom = new Map();
@@ -127,8 +129,8 @@ export { rpcurl };
         }
         console.log(
             "all\xA0images\xA0download\xA0done" +
-                ":" +
-                domtourl.get(document) || document.documentURI
+            ":" +
+            domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
