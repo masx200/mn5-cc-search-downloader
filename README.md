@@ -2,7 +2,7 @@
 
 网站 www.mn5.cc 和 www.xiurenji.com 的搜索页面的批量下载图片浏览器脚本
 
-使用方法
+# 使用方法
 
 1.打开搜索页面
 
@@ -22,7 +22,7 @@ https://github.com/masx200/mn5-cc-search-downloader/blob/master/index.js
 
 https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/index.js
 
-注意:
+# 注意:
 
 需要配合 arai2c 使用，
 
