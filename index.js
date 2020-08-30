@@ -1,13 +1,10 @@
+import { sleep } from "./sleep.js";
 ~(() => {
     const rpcurl = "http://localhost:6800/jsonrpc";
     const urltodom = new Map();
     const domtourl = new Map();
     //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
-    function sleep(ms) {
-        return new Promise((resolve) => {
-            setTimeout(resolve, ms);
-        });
-    }
+
     //https://unpkg.com/@shanyue/promise-utils@2.0.4/dist/lib/retry.js
 
     ("use strict");
@@ -30,7 +27,7 @@
     ///*exports.AbortError = AbortError;*/
     async function retry(
         run,
-        { times = 10, onFailedAttempt = (e) => { } } = {}
+        { times = 10, onFailedAttempt = (e) => {} } = {}
     ) {
         let count = 1;
         async function exec() {
@@ -253,8 +250,8 @@
         }
         console.log(
             "all\xA0images\xA0download\xA0done" +
-            ":" +
-            domtourl.get(document) || document.documentURI
+                ":" +
+                domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
@@ -268,5 +265,5 @@
         });
     }
 
-    start()
+    start();
 })();
