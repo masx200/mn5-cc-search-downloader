@@ -28,7 +28,10 @@
         }
     }
     ///*exports.AbortError = AbortError;*/
-    async function retry(run, { times = 10, onFailedAttempt = (e) => { } } = {}) {
+    async function retry(
+        run,
+        { times = 10, onFailedAttempt = (e) => {} } = {}
+    ) {
         let count = 1;
         async function exec() {
             try {
@@ -250,8 +253,8 @@
         }
         console.log(
             "all\xA0images\xA0download\xA0done" +
-            ":" +
-            domtourl.get(document) || document.documentURI
+                ":" +
+                domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
