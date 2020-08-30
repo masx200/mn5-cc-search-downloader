@@ -180,7 +180,12 @@ docs.forEach(doc=>domtourl.delete(doc))
         const directoryname = getdirectoryname(document);
         let fileurls = selectimagesfromdom(document);
         return callaria2cdown(fileurls, directoryname);
-    }
+console.log(
+        "one page\xA0images\xA0download\xA0done " + domtourl.get(document)
+//
+//document.documentURI
+    );    
+}
     //选择所有页选择按钮的网址链接
     function selectpagehtmlurls(document) {
         // console.log(document)
