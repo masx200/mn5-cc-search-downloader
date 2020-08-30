@@ -1,52 +1,11 @@
+import { retry } from "./retry.js";
 import { sleep } from "./sleep.js";
+
+//exports.retry = retry;
 ~(() => {
     const rpcurl = "http://localhost:6800/jsonrpc";
     const urltodom = new Map();
     const domtourl = new Map();
-    //https://unpkg.com/browse/@shanyue/promise-utils@2.0.4/dist/lib/sleep.js
-
-    //https://unpkg.com/@shanyue/promise-utils@2.0.4/dist/lib/retry.js
-
-    ("use strict");
-    ///*Object.defineProperty(exports, "__esModule", { value: true });
-    //exports.retry = exports.AbortError = void 0;*/
-    class AbortError extends Error {
-        constructor(message) {
-            super();
-            if (message instanceof Error) {
-                this.originalError = message;
-                ({ message } = message);
-            } else {
-                this.originalError = new Error(message);
-                this.originalError.stack = this.stack;
-            }
-            this.name = "AbortError";
-            this.message = message;
-        }
-    }
-    ///*exports.AbortError = AbortError;*/
-    async function retry(
-        run,
-        { times = 10, onFailedAttempt = (e) => {} } = {}
-    ) {
-        let count = 1;
-        async function exec() {
-            try {
-                const result = await run(count);
-                return result;
-            } catch (e) {
-                if (count > times || e instanceof AbortError) {
-                    throw e;
-                }
-                count++;
-                await onFailedAttempt(e);
-                return exec();
-            }
-        }
-        return exec();
-    }
-    //exports.retry = retry;
-    //# sourceMappingURL=retry.js.map
 
     const fetch = async function fetch(url, opt = {}) {
         return await retry(
