@@ -1,12 +1,14 @@
 import { callaria2cdown } from "./callaria2cdown.js";
+import { checkurl } from "./checkurl.js";
 import { getdirectoryname } from "./getdirectoryname.js";
 import { retryfetch } from "./retryfetch.js";
 import { selectimagesfromdom } from "./selectimagesfromdom";
 import { selectsearchresults } from "./selectsearchresults.js";
 export const fetch = retryfetch;
 // @ts-ignore
-const rpcparam = new URL(import.meta.url).searchParams.get("rpc")
+const rpcparam = new URL(import.meta.url).searchParams.get("rpc");
 const rpcurl = rpcparam ?? "http://localhost:6800/jsonrpc";
+checkurl(rpcurl);
 export { rpcurl };
 ~(() => {
     const urltodom = new Map();
@@ -129,8 +131,8 @@ export { rpcurl };
         }
         console.log(
             "all\xA0images\xA0download\xA0done" +
-            ":" +
-            domtourl.get(document) || document.documentURI
+                ":" +
+                domtourl.get(document) || document.documentURI
             //document.documentURI
         );
     }
