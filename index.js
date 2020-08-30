@@ -1,4 +1,6 @@
+import { getdirectoryname } from "./getdirectoryname";
 import { retryfetch } from "./retryfetch";
+import { selectsearchresults } from "./selectsearchresults";
 const fetch = retryfetch;
 //exports.retry = retry;
 ~(() => {
@@ -15,20 +17,7 @@ const fetch = retryfetch;
     //https://www.xiurenji.com/plus/search/index.asp?keyword=no.1&searchtype=title&p=1
 
     //选择搜索的结果的网址
-    function selectsearchresults(document) {
-        return Array.from(document.querySelectorAll(".node  .title1 a")).map(
-            (a) => a.href
-        );
-    }
-    //获得相册文件夹名
-    function getdirectoryname(document) {
-        let directoryname =
-            //  document.title +
-            //  "\xA0" +
-            document.querySelectorAll(`.ina > p > b:nth-child(2)`)[0]
-                ?.textContent ?? document.title;
-        return directoryname;
-    }
+
     //下载相册所有页的图片
     async function downloadallpagesfromdom(document) {
         const docs = [];
