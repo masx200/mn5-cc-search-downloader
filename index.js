@@ -3,6 +3,7 @@ import { checkurl } from "./checkurl.js";
 import { getdirectoryname } from "./getdirectoryname.js";
 import { retryfetch } from "./retryfetch.js";
 import { selectimagesfromdom } from "./selectimagesfromdom";
+import { selectpagehtmlurls } from "./selectpagehtmlurls";
 import { selectsearchresults } from "./selectsearchresults.js";
 export const fetch = retryfetch;
 // @ts-ignore
@@ -67,16 +68,7 @@ export { rpcurl };
         );
     }
     //选择所有页选择按钮的网址链接
-    function selectpagehtmlurls(document) {
-        // console.log(document)
-        return Array.from(
-            new Set(
-                Array.from(document.querySelectorAll(".page a")).map(
-                    (a) => a.href
-                )
-            )
-        );
-    }
+
     // const urltodom = new Map();
     // const domtourl = new Map();
     //从网址解析出文档
