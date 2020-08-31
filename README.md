@@ -1,6 +1,6 @@
 # mn5-cc-search-downloader
 
-网站 www.mn5.cc 和 www.xiurenji.com 的搜索页面的批量下载图片浏览器脚本
+网站 https://www.mn5.cc 和 https://www.xiurenji.com 的搜索页面和 https://blog.mn5.cc/ 的批量下载图片浏览器脚本
 
 # 使用方法
 
@@ -12,7 +12,12 @@ https://www.mn5.cc/plus/search/index.asp
 
 https://www.xiurenji.com/plus/search/index.asp
 
-2.搜索框输入内容,点击搜索
+搜索框输入内容,点击搜索
+
+或者打开
+
+https://blog.mn5.cc/
+
 
 3.把内容复制到浏览器控制台运行
 
