@@ -18,7 +18,6 @@ https://www.xiurenji.com/plus/search/index.asp
 
 https://blog.mn5.cc/
 
-
 3.把内容复制到浏览器控制台运行
 
 ```js
