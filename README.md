@@ -21,13 +21,15 @@ import(
     "https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/src/index.js"
 );
 ```
+
 或者 如果浏览器不支持
 
 ```js
- window[Symbol.for('rpcurl')] = 'http://localhost:6800/jsonrpc';
-var s = document.createElement('script');
-s.src = 'https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/src/index.js';
-s.type = 'module';
+window[Symbol.for("rpcurl")] = "http://localhost:6800/jsonrpc";
+var s = document.createElement("script");
+s.src =
+    "https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/src/index.js";
+s.type = "module";
 s.async = true;
 document.head.appendChild(s);
 s.onload = s.onerror = () => {
@@ -35,6 +37,7 @@ s.onload = s.onerror = () => {
     s = undefined;
 };
 ```
+
 # 注意:
 
 需要配合 arai2c 使用，
@@ -46,6 +49,7 @@ aria2 RPC 默认调用网址为
 http://localhost:6800/jsonrpc
 
 # 配置变量
+
 也可以在加载脚本前,通过设置变量`window[Symbol.for("rpcurl")]`来修改,例如
 
 ```js
