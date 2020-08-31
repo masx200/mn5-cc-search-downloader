@@ -45,6 +45,7 @@ aria2 RPC 默认调用网址为
 
 http://localhost:6800/jsonrpc
 
+# 配置变量
 也可以在加载脚本前,通过设置变量`window[Symbol.for("rpcurl")]`来修改,例如
 
 ```js
