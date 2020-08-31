@@ -25,7 +25,9 @@ import(
 或者 如果浏览器不支持
 
 ```js
-window[Symbol.for("rpcurl")] = "http://localhost:6800/jsonrpc";
+~(()=>{
+	
+	window[Symbol.for("rpcurl")] = "http://localhost:6800/jsonrpc";
 var s = document.createElement("script");
 s.src =
     "https://cdn.jsdelivr.net/gh/masx200/mn5-cc-search-downloader@latest/src/index.js";
@@ -36,6 +38,9 @@ s.onload = s.onerror = () => {
     document.head.removeChild(s);
     s = undefined;
 };
+	
+})()
+
 ```
 
 # 注意:
