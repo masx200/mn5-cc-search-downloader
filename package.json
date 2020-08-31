@@ -1,4 +1,8 @@
 {
+    "publishConfig": {
+        "registry": "https://registry.npmjs.com/",
+        "access": "public"
+    },
     "type": "module",
     "scripts": {
         "prettier": "prettier --write *.json *.md **/*.js"
